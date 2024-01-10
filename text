@@ -1,0 +1,32 @@
+Add the .hidden class to the error modal in the HTML:
+
+This is done at the beginning with errorModal.classList.add('hidden');. The modal will be hidden initially.
+When a user clicks on an empty heart:
+
+You use mimicServerCall to simulate a server request.
+When the "server" returns a failure status:
+
+You handle this case with the .catch(() => {}) block.
+The error modal is displayed by removing the .hidden class.
+The error message is set and displayed in the modal.
+The modal is hidden after 3 seconds using setTimeout.
+When the "server" returns a success status:
+
+You handle this case with the .then(() => {}) block.
+The heart is changed to a full heart.
+The .activated-heart class is added to make the heart appear red.
+When a user clicks on a full heart:
+
+This is not explicitly mentioned in the provided code, but based on your existing logic, it seems that clicking on a full heart will revert it back to an empty heart and remove the .activated-heart class.
+Keep all styling rules entirely in style.css:
+
+The code doesn't directly manipulate the style properties. All styling is expected to be in the style.css file.
+Only manipulate the DOM once the server request responds:
+
+The code manipulates the DOM inside the .then(() => {}) and .catch(() => {}) blocks, ensuring that the DOM manipulation occurs only after the server request responds.
+Check if the modal has the 'hidden' class:
+
+This check is done at the end with expect(errorModal.classList.contains('hidden')).toBe(true);. It verifies that the error modal is initially hidden.
+Additional async function for waiting for DOMContentLoaded:
+
+You have an async function waitForDOMContentLoaded that wraps the test and uses await to wait for the DOM to be fully loaded.
